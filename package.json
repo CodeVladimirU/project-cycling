@@ -1,0 +1,38 @@
+{
+  "name": "project-cycling",
+  "version": "1.0.0",
+  "description": "## Звонок от заказчика",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeVladimirU/project-cycling.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeVladimirU/project-cycling/issues"
+  },
+  "homepage": "https://github.com/CodeVladimirU/project-cycling#readme",
+  "dependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/register": "^7.17.7",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "sequelize": "^6.20.0",
+    "sequelize-cli": "^6.4.1",
+    "session-file-store": "^1.5.0"
+  }
+}
