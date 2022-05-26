@@ -4,6 +4,7 @@ const ReactDOMServer = require('react-dom/server');
 // const Layout = require('../../views/Layout');
 const ReviewList = require('../../views/ReviewList');
 const { Review, User } = require('../../db/models');
+const NewRouteForm = require("../../views/NewRouteForm");
 
 homeRouter.get('/', async (req, res) => {
   const reviews = await Review.findAll({ order: [['id', 'DESC']] });
@@ -38,4 +39,15 @@ homeRouter.get('/logout', (req, res) => {
       .redirect('/');
   });
 });
+
+homeRouter.get('/route', (req, res) => {
+  const newRouterForm = React.createElement(NewRouteForm);
+  const html = ReactDOMServer.renderToStaticMarkup(newRouterForm);
+  res.end(html);
+});
+
+homeRouter.post('/route', (req, res) => {
+  const username = req.session.user.username;
+  res.end(username)
+})
 module.exports = homeRouter;

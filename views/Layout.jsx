@@ -6,11 +6,8 @@ module.exports = function Layout({ children, user }) {
     <html lang="en">
 
       <head>
-        <link rel="stylesheet" href="/stylesheets/normalize.css" />
-        <link rel="stylesheet" href="/stylesheets/application.css" />
-        <link rel="stylesheet" href="/stylesheets/style.css" />
         <meta charSet="utf-8" />
-        <script defer src="/js/application.js" />
+        <script defer src="/js/client.js" />
 
         <title>Broccoli Blog</title>
       </head>

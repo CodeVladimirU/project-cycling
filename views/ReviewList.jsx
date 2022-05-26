@@ -7,7 +7,8 @@ module.exports = function ReviewList({ reviews, user }) {
       <div>
         {user ? (
           <main role="main">
-            <button type="submit" className="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Создать новый маршрут</button>
+            <button id="newRoute" type="submit" className="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Создать новый маршрут</button>
+           <div className="formNewRoute"></div>
             <ul className="entries-list no-bullets no-padding">
               {reviews.map((rev) => (
                 <li className="entry-item pad-b-4">
