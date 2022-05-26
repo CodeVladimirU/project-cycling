@@ -1,9 +1,9 @@
 const React = require('react');
-const Loyaut = require('./Layout');
+const Layout = require('./Layout');
 
 function LoginForm() {
   return (
-    <Loyaut>
+    <Layout>
       <div className="login-page">
         <div className="form">
           <form
@@ -22,7 +22,7 @@ function LoginForm() {
           </form>
         </div>
       </div>
-    </Loyaut>
+    </Layout>
   );
 }
 module.exports = LoginForm;
