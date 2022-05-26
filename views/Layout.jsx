@@ -4,33 +4,25 @@ const Navigation = require('./Navigation');
 module.exports = function Layout({ children, user }) {
   return (
     <html lang="en">
-
-      <head>
-        <link rel="stylesheet" href="/stylesheets/normalize.css" />
-        <link rel="stylesheet" href="/stylesheets/application.css" />
-        <link rel="stylesheet" href="/stylesheets/style.css" />
+     <head>
         <meta charSet="utf-8" />
-        <script defer src="/js/application.js" />
-
-        <title>Broccoli Blog</title>
+        <link rel="stylesheet" href="/css/review.css" />
+        <link rel="stylesheet" href="/css/regastyle.css" />
+        <link rel="stylesheet" href="/css/loginstyle.css" />
+        <link rel="stylesheet" href="/css/navstyle.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+       <title>Broccoli Blog</title>
       </head>
 
       <body>
         <header role="banner" className="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
-          <div className="max-w-700 center wrap-float">
+          
             <Navigation user={user} />
-            <div className="formAjax" />
-            <div className="logo-container">
-              <img className="logo center block" src="/images/logo.png" alt="logo" />
-              <h1>Broccoli Blog</h1>
-            </div>
-          </div>
+              <img className="logo-container" src="/img/logo.png" alt="logo" />
         </header>
-        <div className="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
-          <div className="max-w-700 center">
+
             {children}
-          </div>
-        </div>
+
       </body>
 
     </html>
