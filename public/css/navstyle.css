@@ -2,7 +2,7 @@ body {
   background-image: url("../img/pngwing.png");
   /* background-repeat: no-repeat; */
   background-attachment: fixed;
-  background-size: 650px;
+  background-size: 620px;
 }
 .wlc {
   display: flex;

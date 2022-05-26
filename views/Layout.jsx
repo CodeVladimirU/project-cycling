@@ -18,7 +18,7 @@ module.exports = function Layout({ children, user }) {
         <header role="banner" className="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
           
             <Navigation user={user} />
-              <img className="logo-container" src="/img/logo.png" alt="logo" />
+              <img className="logo-container" src="/img/logo2.png" alt="logo" />
         </header>
 
             {children}
