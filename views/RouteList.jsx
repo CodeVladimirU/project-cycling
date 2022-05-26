@@ -3,7 +3,7 @@ const FilterBar = require('./FilterBar');
 
 const Layout = require('./Layout');
 
-module.exports = function RoutList({ routes, user,location }) {
+module.exports = function RoutList({ routes,location, user }) {
   return (
     <Layout user={user}>
       <FilterBar location={location}></FilterBar>
@@ -11,7 +11,7 @@ module.exports = function RoutList({ routes, user,location }) {
         {user ? (
           <main role="main">
             <button type="submit" className="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Создать новый маршрут</button>
-            <ul className="entries-list no-bullets no-padding">
+            <ul className="entries-list no-bullets no-padding js-container-list">
               {routes.map((route) => (
                 <li className="entry-item pad-b-4">
                   <p><a href={`/entries/${route.id}`} className="entry-title font-2 pad-b-1-4 c-white">{route.title}</a></p>
@@ -29,7 +29,7 @@ module.exports = function RoutList({ routes, user,location }) {
           </main>
         ) : (
           <main role="main">
-            <ul className="entries-list no-bullets no-padding">
+            <ul className="entries-list no-bullets no-padding js-container-list">
             {routes.map((route) => (
                 <li className="entry-item pad-b-4">
                   <a href={`/entries/${route.id}`} className="entry-title font-2 pad-b-1-4 c-white">{route.title}</a>

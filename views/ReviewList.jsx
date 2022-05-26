@@ -17,7 +17,7 @@ module.exports = function ReviewList({ reviews, user }) {
                     {' '}
                     {rev.createdAt.toString()}
                   </span>
-                  <p className="entry-stub">{rev.body}</p>
+                  <p className="entry-stub">{rev.map}</p>
                 </li>
               ))}
             </ul>
@@ -33,7 +33,7 @@ module.exports = function ReviewList({ reviews, user }) {
                     {' '}
                     {rev.createdAt.toString()}
                   </span>
-                  <p className="entry-stub">{rev.body}</p>
+                  <p className="entry-stub">{rev.map}</p>
                 </li>
               ))}
             </ul>
