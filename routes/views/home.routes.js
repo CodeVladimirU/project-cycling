@@ -47,22 +47,19 @@ homeRouter.post('/filter', async (req, res) => {
    const {location_id } = req.body
    console.log(req.body)
    const location = await Location.findAll()
-   const routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location], where: {location_id: Number(location_id)}});
-   const userSes = req.session.user;
+   let routesNew
+   if (location_id === "0") {
+    routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location]});
+  
+   }
+   else {
+   routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location], where: {location_id: Number(location_id)}});
+   }
    console.log(routesNew)
-   if (userSes) {
-    const user = await User.findOne({
-      where: {
-        username: userSes.username,
-      },
-    });
-   const filteredListRoutes = React.createElement(RoutListFiltered, { routes:routesNew, location, user });
-   const html = ReactDOMServer.renderToStaticMarkup(filteredListRoutes)
-  //   const html = ReactDOMServer.renderToStaticMarkup(home);
-  res.end(html);
-  } else {
+  
   const filteredListRoutes = React.createElement(RoutListFiltered, { routes:routesNew, location });
   const html = ReactDOMServer.renderToStaticMarkup(filteredListRoutes);
-  res.end(html); }
+  res.end(html); 
+//}
 })
 module.exports = homeRouter;
