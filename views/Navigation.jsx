@@ -6,19 +6,19 @@ function Navigation({ user }) {
       {
       user
         ? (
-          <nav className="clearfix mar-b-1">
-            <ul className="no-bullets no-margin no-padding right">
-              <p>Hello {user.username}</p>
-              <li className="pipe-separate t-light-green left"><a className="loginLink" href="/logout">logout</a></li>
-              <li className="pipe-separate t-light-green left"><a href="/">home</a></li>
+          <nav className="top-menu">
+            <ul className="menu-main">
+              <p className="left-item">Hello, {user.username}</p>
+              <li className="right-item"><a className="loginLink" href="/logout">logout</a></li>
+              <li className="right-item"><a href="/">home</a></li>
             </ul>
           </nav>
         ) : (
-          <nav className="clearfix mar-b-1">
-            <ul className="no-bullets no-margin no-padding right">
-              <li className="pipe-separate t-light-green left"><a className="regLink" href="/registration">register</a></li>
-              <li className="pipe-separate t-light-green left"><a className="loginLink" href="/login">login</a></li>
-              <li className="pipe-separate t-light-green left"><a href="/">home</a></li>
+          <nav className="top-menu">
+            <ul className="menu-main">
+              <li className="right-item"><a className="regLink" href="/registration">register</a></li>
+              <li className="right-item"><a className="loginLink" href="/login">login</a></li>
+              <li className="left-item"><a href="/">home</a></li>
             </ul>
           </nav>
         )

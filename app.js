@@ -14,12 +14,12 @@ const PORT = 3000;
 app.use(session(
   {
     store: new FileStore(),
-    name: 'user_sid', // Имя куки для хранения id сессии. По умолчанию - connect.sid
-    secret: process.env.SESSION_SECRET ?? 'test', // Секретное слово для шифрования, может быть любым
-    resave: false, // Пересохранять ли куку при каждом запросе
-    saveUninitialized: false, // Создавать ли сессию без инициализации ключей в req.session
+    name: 'user_sid',
+    secret: process.env.SESSION_SECRET ?? 'test',
+    resave: false,
+    saveUninitialized: false,
     cookie: {
-      maxAge: 1000 * 60 * 60 * 12, // Срок истечения годности куки в миллисекундах
+      maxAge: 1000 * 60 * 60 * 12,
     },
   },
 ));

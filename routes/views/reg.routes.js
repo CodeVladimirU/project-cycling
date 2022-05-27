@@ -24,7 +24,7 @@ regRouter.post('/create', async (req, res) => {
   }
   const usernameCheck = await User.findOne({
     where: {
-      username,
+      username: username.trim(),
     },
   });
   if (usernameCheck) {
