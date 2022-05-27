@@ -9,7 +9,8 @@ const FileStore = require('session-file-store')(session);
 const regRouter = require('./routes/views/reg.routes');
 const loginRouter = require('./routes/views/login.routes');
 const homeRouter = require('./routes/views/home.routes');
-
+const yandexRouter = require('./routes/api/yaMap.routes');
+const ymapRouter = require('./routes/api/ymap.routes');
 const PORT = 3000;
 app.use(session(
   {
@@ -30,6 +31,8 @@ app.use(morgan('dev'));
 app.use('/', homeRouter);
 app.use('/registration', regRouter);
 app.use('/login', loginRouter);
+app.use('/yandex', yandexRouter);
+app.use('/api/map', ymapRouter)
 
 app.listen(PORT, () => {
   console.log('йоу');
