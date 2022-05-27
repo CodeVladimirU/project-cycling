@@ -44,6 +44,7 @@ module.exports = function RoutList({ routes,location, user }) {
                   <p className="entry-stub">{`${route.Location.title}`}</p>
                   <p className='entry-stub'>{`Стартовая точка - ${route.pointA}`}</p>
                   <p className='entry-stub'>{`Конечная точка - ${route.pointB}`}</p>
+                  <p className="entry-stub">{`Rating:  ${route.AvRating}/10`}</p>
 
                 </li>
 

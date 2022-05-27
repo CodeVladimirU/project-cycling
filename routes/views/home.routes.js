@@ -89,12 +89,14 @@ homeRouter.get('/route', (req, res) => {
 homeRouter.post('/route', async (req, res) => {
   const username = req.session.user.username;
   const {title, location, length_km, pointA, pointB} =req.body;
+  console.log(req.body);
   // const id = req.session.user.id;
   const locationCheck = await Location.findOne({
     where: {
       title: location,
     }
   });
+  console.log('====================================>',locationCheck);
   let newLocation;
   let createRoute;
   if (!locationCheck) {
@@ -104,26 +106,46 @@ homeRouter.post('/route', async (req, res) => {
     console.log(err.message)
     return res.status(500)
     }
+    try {
+      createRoute = await Route.create({
+        title,
+        user_id: req.session.user.id,
+        location_id: newLocation.id,
+        length_km,
+        pointA,
+        pointB,
+      })
+    } catch (err) {
+      console.log(err.message)
+      return res.status(500)
+    }
+    const id = createRoute.dataValues.id;
+    const route = {id, title, length_km, pointA, pointB};
+    console.log(route);
+    const newRoute = React.createElement(NewRoute, {route, username, location: newLocation.title});
+    const html = ReactDOMServer.renderToStaticMarkup(newRoute);
+    res.end(html);
+  } else {
+    try {
+      createRoute = await Route.create({
+        title,
+        user_id: req.session.user.id,
+        location_id: locationCheck.dataValues.id,
+        length_km,
+        pointA,
+        pointB,
+      })
+    } catch (err) {
+      console.log(err.message)
+      return res.status(500)
+    }
+    const id = createRoute.dataValues.id;
+    const route = {id, title, length_km, pointA, pointB};
+    console.log(route);
+    const newRoute = React.createElement(NewRoute, {route, username, location: locationCheck.title});
+    const html = ReactDOMServer.renderToStaticMarkup(newRoute);
+    res.end(html);
   }
-  try {
-    createRoute = await Route.create({
-      title,
-      user_id: req.session.user.id,
-      location_id: newLocation.id,
-      length_km,
-      pointA,
-      pointB,
-    })
-  } catch (err) {
-    console.log(err.message)
-    return res.status(500)
-  }
-  const id = createRoute.dataValues.id;
-  console.log(id);
-  const route = {id, title, length_km, pointA, pointB};
-  const newRoute = React.createElement(NewRoute, {route, username, location});
-  const html = ReactDOMServer.renderToStaticMarkup(newRoute);
-  res.end(html);
 })
 
 homeRouter.delete('/route/:id', async (req, res) => {

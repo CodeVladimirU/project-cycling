@@ -5,6 +5,7 @@ newRouteButton.addEventListener('click', async (event) => {
 console.log('poimal')
     if(document.querySelector('.formNewRoute').style.visibility == 'hidden') {
         document.querySelector('.formNewRoute').style.visibility = 'visible'
+        document.querySelector('.formNewRoute').style.position = 'static'
     }
     const responce = await fetch('/route', {
         method: "GET",
@@ -32,13 +33,15 @@ console.log('poimal')
         let html = await response.text();
 
         //const sda = document.createElement('div');
-        const liList = document.querySelector('#routeList').innerHTML
-        const liListAdd = html + liList;
-        document.querySelector('#routeList').innerHTML = liListAdd; 
+        // const liList = document.querySelector('#routeList').innerHTML
+        // const liListAdd = html + liList;
+        // document.querySelector('#routeList').innerHTML = liListAdd; 
         // sda.innerHTML = html
         // document.querySelector('.entries-list').prepend(sda);
-
+        document.querySelector('#routeList').innerHTML += html;
         document.querySelector('.formNewRoute').style.visibility = 'hidden';
+        document.querySelector('.formNewRoute').style.position = 'absolute';
+
 
     })
 })
