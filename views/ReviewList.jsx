@@ -7,8 +7,11 @@ module.exports = function ReviewList({ reviews, user }) {
       <div className="table">
         {user ? (
           <main role="main">
-            <button type="submit" className="btnReview">Создать новый маршрут</button>
-            <ul className="entries">
+
+            <button id="newRoute"  type="submit" className="btnReview">Создать новый маршрут</button>
+            <div className="formNewRoute"></div>
+            <ul className="entries-list entries">
+
               {reviews.map((rev) => (
                 <li className="countur">
                   <a href={`/entries/${rev.id}`} className="entry-title">{rev.title}</a>

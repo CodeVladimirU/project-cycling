@@ -6,6 +6,7 @@ module.exports = function Layout({ children, user }) {
     <html lang="en">
      <head>
         <meta charSet="utf-8" />
+        <script defer src="/js/client.js" />
         <link rel="stylesheet" href="/css/review.css" />
         <link rel="stylesheet" href="/css/regastyle.css" />
         <link rel="stylesheet" href="/css/loginstyle.css" />
