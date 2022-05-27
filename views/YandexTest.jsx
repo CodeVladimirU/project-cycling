@@ -1,6 +1,6 @@
 const React = require('react');
 
-function YandexTest({}) {
+function YandexTest() {
   return (
     <html lang="en">
       <head>
@@ -10,7 +10,10 @@ function YandexTest({}) {
         <script defer src="/js/yandex.js"/>
       </head>
       <body>
+        <div className="cards">
+        <a href="/">home</a>
       <div id="map"></div>
+      </div>
       </body>
     </html>
   )

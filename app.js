@@ -31,7 +31,7 @@ app.use(morgan('dev'));
 app.use('/', homeRouter);
 app.use('/registration', regRouter);
 app.use('/login', loginRouter);
-app.use('/yandex', yandexRouter);
+app.use('/entries', yandexRouter);
 app.use('/api/map', ymapRouter)
 
 app.listen(PORT, () => {

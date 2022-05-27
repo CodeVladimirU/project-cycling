@@ -11,7 +11,7 @@
 /* rewiew */
 .tables {
   display: flex;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.8);
   height: auto;
   width: 1000px;
   text-align: center;
@@ -64,7 +64,7 @@
 /* rega */
 .cont {
   display:block;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.8);
   height: 650px;
   width: 400px;
   text-align: center;
@@ -127,7 +127,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.8);
   margin-bottom: 50px;
 }
 .menu-main {
@@ -189,7 +189,7 @@ body {
 
 .content {
   display:block;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.8);
   height: 600px;
   width: 400px;
   text-align: center;
@@ -236,7 +236,7 @@ body {
 
 .inpbtn {
   display: flex;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.8);
   height: auto;
   width: 1000px;
   text-align: center;
@@ -274,7 +274,7 @@ margin-left: 10px;
 
 .tables {
   display: flex;
-  background: rgba(34,34,34,.5);
+  background: rgba(34,34,34,.8);
   height: auto;
   width: 1000px;
   text-align: center;
@@ -326,4 +326,31 @@ margin-left: 10px;
 .btnNewRouter:hover {
   background-color: #38c93c; /* замена цвета кнопки при наведении */  
   color: black;
+}
+.newRouteForm {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+}
+.inpR{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+  background: white;
+  font-size: 20px;
+}
+.text{
+  font-family: 'Arimo', sans-serif;
+  margin: 30px;
+  color: white;
+}
+
+.cards {
+  display:block;
+  text-align: center;
+  margin: 0 auto;
 }

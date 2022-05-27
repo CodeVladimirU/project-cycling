@@ -77,6 +77,7 @@ homeRouter.post('/filter', async (req, res) => {
 
   
 
+
 homeRouter.get('/route', (req, res) => {
 
   const newRouterForm = React.createElement(NewRouteForm);
@@ -87,7 +88,7 @@ homeRouter.get('/route', (req, res) => {
 
 homeRouter.post('/route', async (req, res) => {
   const username = req.session.user.username;
-  const {title, location, length_km} =req.body;
+  const {title, location, length_km, pointA, pointB} =req.body;
   // const id = req.session.user.id;
   const locationCheck = await Location.findOne({
     where: {
@@ -109,14 +110,17 @@ homeRouter.post('/route', async (req, res) => {
       title,
       user_id: req.session.user.id,
       location_id: newLocation.id,
-      length_km
+      length_km,
+      pointA,
+      pointB,
     })
   } catch (err) {
     console.log(err.message)
     return res.status(500)
   }
   const id = createRoute.dataValues.id;
-  const route = {id, title, length_km};
+  console.log(id);
+  const route = {id, title, length_km, pointA, pointB};
   const newRoute = React.createElement(NewRoute, {route, username, location});
   const html = ReactDOMServer.renderToStaticMarkup(newRoute);
   res.end(html);

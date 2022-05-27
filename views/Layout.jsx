@@ -15,7 +15,7 @@ module.exports = function Layout({ children, user }) {
         <link rel="stylesheet" href="/css/navstyle.css" /> */}
         <link rel="stylesheet" href="/css/style.css" />
         {/* <link rel="stylesheet" href="/css/review.css" /> */}
-       <title>Broccoli Blog</title>
+       <title>Велопрогулки</title>
     </head>
 
       <body>

@@ -4,7 +4,8 @@ const ReactDOMServer = require('react-dom/server');
 const YandexTest = require('../../views/YandexTest');
 const YandexMap = require('../../views/YandexTest')
 const {Route} = require('../../db/models')
-yandexRouter.get('/', async (req, res) => {
+
+yandexRouter.get('/:id', async (req, res) => {
   const home = React.createElement(YandexTest);
   const html = ReactDOMServer.renderToStaticMarkup(home);
   res.write('<!DOCTYPE html>');
