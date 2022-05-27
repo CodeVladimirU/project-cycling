@@ -1,27 +1,17 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Locations', [{
-      title: 'St.Petersburg',
+      title: 'Санкт-Петербург',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      title: 'Moscow',
+      title: 'Москва',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      title: 'Minsk',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      title: 'Ekaterinburg',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      title: 'Yaroslavl',
+      title: 'Великий Новгород',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
