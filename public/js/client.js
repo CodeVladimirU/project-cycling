@@ -2,7 +2,7 @@ const newRouteButton =  document.getElementById('newRoute');
 
 newRouteButton.addEventListener('click', async (event) => {
     event.preventDefault();
-
+console.log('poimal')
     if(document.querySelector('.formNewRoute').style.visibility == 'hidden') {
         document.querySelector('.formNewRoute').style.visibility = 'visible'
     }
@@ -16,11 +16,13 @@ newRouteButton.addEventListener('click', async (event) => {
     const createRoute = document.querySelector('.newRouteForm');
     createRoute.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const {title, location, length_km } = event.target;
+        const {title, location, length_km, pointA, pointB } = event.target;
         const body = JSON.stringify({
             title: title.value,
             location: location.value,
             length_km: length_km.value,
+            pointA: pointA.value,
+            pointB: pointB.value,
         })
         const response = await fetch('/route', {
             method: 'POST',
@@ -42,11 +44,12 @@ newRouteButton.addEventListener('click', async (event) => {
 const deleteRouteButton = document.querySelector('#routeList')
 
 deleteRouteButton.addEventListener('click', async (event) => {
+  if(event.target.classList.contains('deleteRoute')){
     event.preventDefault();
     // console.log(event.target.id)
 
     const id = event.target.getAttribute('id');
-    console.log(event.target.getAttribute('id'))
+    // console.log(event.target.getAttribute('id'))
     const response = await fetch(`/route/${id}`, {
         method: 'DELETE',
         headers: {"Content-Type": "application/json"},
@@ -57,6 +60,8 @@ deleteRouteButton.addEventListener('click', async (event) => {
     document.querySelector(`#li${id}`).remove();
 
     } else if (data.message === "no") alert("no!!")
+  }  
+  
 })
 
 

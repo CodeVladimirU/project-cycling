@@ -5,10 +5,8 @@ const YandexTest = require('../../views/YandexTest');
 const YandexMap = require('../../views/YandexTest')
 const {Route} = require('../../db/models');
 
-ymapRouter.get('/', async (req, res) => {
-  const routes = await Route.findOne({
-    where: {id: 1}
-  })
+ymapRouter.get('/:id', async (req, res) => {
+  const routes = await Route.findByPk(req.params.id, { raw: true });
   res.json(routes);
 });
 
