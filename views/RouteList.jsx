@@ -12,7 +12,8 @@ module.exports = function RoutList({ routes,location, user }) {
           <main role="main">
             <button id="newRoute" type="submit" className="btnReview">Создать новый маршрут</button>
               <div className="formNewRoute"></div>
-              <ul id="routeList" className="entries">
+
+              <ul id="routeList" className="entries js-container-list">
 
               {routes.map((route) => (
                 <li className="countur" id={`li${route.id}`}>
@@ -25,7 +26,7 @@ module.exports = function RoutList({ routes,location, user }) {
                   <p className="entry-stub">{`${route.Location.title}`}</p>
                   <p className="entry-stub">{`length: ${route.length_km} km`}</p>
                   <p className="entry-stub">{`created By ${route.User.username}`}</p>
-                  <p className="entry-stub">{`Rating:  7/10`}</p>
+                  <p className="entry-stub">{`Rating:  ${route.AvRating}/10`}</p>
                     <button id={route.id} className="deleteRoute" type="submit">Удалить маршрут</button>
 
                 </li>
@@ -47,7 +48,7 @@ module.exports = function RoutList({ routes,location, user }) {
                   <p className="entry-stub">{`${route.Location.title}`}</p>
                   <p className="entry-stub">{`length: ${route.length_km} km`}</p>
                   <p className="entry-stub">{`created By ${route.User.username}`}</p>
-                  <p className="entry-stub">{`Rating:  7/10`}</p>
+                  <p className="entry-stub">{`Rating:  ${route.AvRating}/10`}</p>
                 </li>
 
               ))}
