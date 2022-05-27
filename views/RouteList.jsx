@@ -7,15 +7,15 @@ module.exports = function RoutList({ routes,location, user }) {
   return (
     <Layout user={user}>
       <FilterBar location={location}></FilterBar>
-      <div>
+      <div className="tables">
         {user ? (
           <main role="main">
-            <button id="newRoute" type="submit" className="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Создать новый маршрут</button>
+            <button id="newRoute" type="submit" className="btnReview">Создать новый маршрут</button>
               <div className="formNewRoute"></div>
-              <ul id="routeList" className="entries-list no-bullets no-padding">
+              <ul id="routeList" className="entries">
 
               {routes.map((route) => (
-                <li className="entry-item pad-b-4" id={`li${route.id}`}>
+                <li className="countur" id={`li${route.id}`}>
                   <p><a href={`/entries/${route.id}`} className="entry-title font-2 pad-b-1-4 c-white">{route.title}</a></p>
                   {/* <span className="entry-date block font-3-4 c-lt-gray">
                     Written on
@@ -35,7 +35,7 @@ module.exports = function RoutList({ routes,location, user }) {
           <main role="main">
             <ul className="entries-list no-bullets no-padding js-container-list">
             {routes.map((route) => (
-                <li className="entry-item pad-b-4">
+                <li className="countur">
                   <a href={`/entries/${route.id}`} className="entry-title font-2 pad-b-1-4 c-white">{route.title}</a>
                   {/* <span className="entry-date block font-3-4 c-lt-gray">
                     Written on

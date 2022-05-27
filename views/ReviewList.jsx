@@ -4,14 +4,11 @@ const Layout = require('./Layout');
 module.exports = function ReviewList({ reviews, user }) {
   return (
     <Layout user={user}>
-      <div className="table">
+      <div className="tables">
         {user ? (
           <main role="main">
-
-            <button id="newRoute"  type="submit" className="btnReview">Создать новый маршрут</button>
-            <div className="formNewRoute"></div>
-            <ul className="entries-list entries">
-
+            <button type="submit" className="btnReview">Создать новый маршрут</button>
+            <ul className="entries">
               {reviews.map((rev) => (
                 <li className="countur">
                   <a href={`/entries/${rev.id}`} className="entry-title">{rev.title}</a>
@@ -20,11 +17,12 @@ module.exports = function ReviewList({ reviews, user }) {
                     {' '}
                     {rev.createdAt.toString()}
                   </span>
-                  <p className="entry-stub">{rev.map}</p>
+                  <p className="entry-stub">{rev.body}</p>
                 </li>
               ))}
             </ul>
           </main>
+          
         ) : (
           <main role="main">
             <ul className="entries">
@@ -36,7 +34,7 @@ module.exports = function ReviewList({ reviews, user }) {
                     {' '}
                     {rev.createdAt.toString()}
                   </span>
-                  <p className="entry-stub">{rev.map}</p>
+                  <p className="entry-stub">{rev.body}</p>
                 </li>
               ))}
             </ul>
