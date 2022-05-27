@@ -1,17 +1,25 @@
 const homeRouter = require('express').Router();
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
+// const Layout = require('../../views/Layout');
 const NewRouteForm = require("../../views/NewRouteForm");
 const RouteList = require('../../views/RouteList');
-
-const RoutListFiltered = require('../../views/RoutListFiltered')
 const NewRoute = require('../../views/NewRoute')
-const { Route, User, Location } = require('../../db/models');
+const RoutListFiltered = require('../../views/RoutListFiltered')
+const { Route, User, Location, Rating } = require('../../db/models');
 
 homeRouter.get('/', async (req, res) => {
   const routes = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location] });
   const location = await Location.findAll()
+  const ratings = await Rating.findAll({raw: true})
+  routes.forEach(el => el['AvRating'] = getAverage(el, ratings))
+  routes.sort(function (b,a) {if (a['AvRating']>b['AvRating']) { return 1}  return -1}) 
+
+
+
   const userSes = req.session.user;
+  console.log('tut');
+  console.log(userSes);
   if (userSes) {
     const user = await User.findOne({
       where: {
@@ -28,7 +36,7 @@ homeRouter.get('/', async (req, res) => {
   const html = ReactDOMServer.renderToStaticMarkup(home);
    res.write('<!DOCTYPE html>');
   res.end(html); }
-
+  
  // res.json(routes)
 });
 
@@ -43,30 +51,31 @@ homeRouter.get('/logout', (req, res) => {
   });
 });
 
-
 homeRouter.post('/filter', async (req, res) => {
    const {location_id } = req.body
    console.log(req.body)
    const location = await Location.findAll()
    let routesNew
    if (location_id === "0") {
-    routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location]});
-  
-   }
+    routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location]});}
    else {
    routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location], where: {location_id: Number(location_id)}});
    }
-   console.log(routesNew)
+
+   const ratings = await Rating.findAll({raw: true})
+
+   routesNew.forEach(el => el['AvRating'] = getAverage(el, ratings))
+   routesNew.sort(function (b,a) {if (a['AvRating']>b['AvRating']) { return 1}  return -1})
+
+   //console.log(routesNew)
   
   const filteredListRoutes = React.createElement(RoutListFiltered, { routes:routesNew, location });
   const html = ReactDOMServer.renderToStaticMarkup(filteredListRoutes);
   res.end(html); 
-//}
-  
-  
-homeRouter.get('/route', (req, res) => {
+  homeRouter.get('/route', (req, res) => {
   const newRouterForm = React.createElement(NewRouteForm);
   const html = ReactDOMServer.renderToStaticMarkup(newRouterForm);
+  console.log(html)
   res.end(html);
 });
 
@@ -129,4 +138,18 @@ homeRouter.delete('/route/:id', async (req, res) => {
   }
 
 })
-module.exports = homeRouter;
+
+
+})
+
+
+function getAverage(route, ratings) {
+  let avRating = 0 
+  const routRatings = ratings.filter(a=> a.route_id === route.id)
+  if (routRatings.length === 0) {return avRating} else {
+  const ratingsSum  = routRatings.reduce((sum,el) => sum + el.value, 0)
+  avRating = (ratingsSum/routRatings.length).toFixed(1) }
+  return avRating
+  }
+
+  module.exports = homeRouter;
