@@ -72,7 +72,8 @@ homeRouter.post('/filter', async (req, res) => {
   const filteredListRoutes = React.createElement(RoutListFiltered, { routes:routesNew, location });
   const html = ReactDOMServer.renderToStaticMarkup(filteredListRoutes);
   res.end(html); 
-  homeRouter.get('/route', (req, res) => {
+homeRouter.get('/route', (req, res) => {
+
   const newRouterForm = React.createElement(NewRouteForm);
   const html = ReactDOMServer.renderToStaticMarkup(newRouterForm);
   console.log(html)
