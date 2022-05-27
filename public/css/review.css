@@ -1,15 +1,16 @@
 .table {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-  color: white;
   background: rgba(34,34,34,.5);
+  height: auto;
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
   font-family: 'Arimo', sans-serif;
   font-weight: bold;
-  font-size: 20px;
 }
+
 .entry-date {
   color: white;
 }
@@ -18,8 +19,8 @@
 }
 .btnReview {
   display: block;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
   padding: 20px 60px; /* расстояние от текста до края кнопки */
   background-color: #303030; /* цвет кнопки  */
@@ -32,7 +33,8 @@
   color: #f7f8e8; /* цвет текста на кнопке */
   }
   .btnReview:hover {
-    background-color: #949a9a; /* замена цвета кнопки при наведении */  
+    background-color: #f0da33; /* замена цвета кнопки при наведении */  
+    color: black;  
 }
 .countur{
   border: 1px solid;

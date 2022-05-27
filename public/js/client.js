@@ -56,7 +56,7 @@ deleteRouteButton.addEventListener('click', async (event) => {
     if (data.message === "ok") {
     document.querySelector(`#li${id}`).remove();
 
-    } else if (data.message === "no") alert("no!!")
+    } else if (data.message === "no") alert("Нельзя удалить чужой маршрут!")
 })
 
 

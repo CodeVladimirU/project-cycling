@@ -5,12 +5,11 @@ function LoginForm() {
   return (
 
     <Layout>
-         <form
-
+        <form
             className="login-form"
             method="POST"
             action="/login"
-          >
+        >
             <div className="content">
             <p className="justtext">Войти</p>
             <p>Логин</p>

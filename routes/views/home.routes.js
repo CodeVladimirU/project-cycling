@@ -61,7 +61,7 @@ homeRouter.post('/filter', async (req, res) => {
   const filteredListRoutes = React.createElement(RoutListFiltered, { routes:routesNew, location });
   const html = ReactDOMServer.renderToStaticMarkup(filteredListRoutes);
   res.end(html); 
-//}
+});
   
   
 homeRouter.get('/route', (req, res) => {
@@ -114,9 +114,6 @@ homeRouter.delete('/route/:id', async (req, res) => {
       id: req.params.id
     }
   });
-  console.log(route.dataValues.user_id )
-  console.log(id)
-  console.log(req.params.id)
   if (+route.dataValues.user_id === +id) {
   await Route.destroy({
     where: {
@@ -129,4 +126,5 @@ homeRouter.delete('/route/:id', async (req, res) => {
   }
 
 })
+
 module.exports = homeRouter;
