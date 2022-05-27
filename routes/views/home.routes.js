@@ -3,6 +3,8 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const NewRouteForm = require("../../views/NewRouteForm");
 const RouteList = require('../../views/RouteList');
+
+const RoutListFiltered = require('../../views/RoutListFiltered')
 const NewRoute = require('../../views/NewRoute')
 const { Route, User, Location } = require('../../db/models');
 
@@ -41,6 +43,27 @@ homeRouter.get('/logout', (req, res) => {
   });
 });
 
+
+homeRouter.post('/filter', async (req, res) => {
+   const {location_id } = req.body
+   console.log(req.body)
+   const location = await Location.findAll()
+   let routesNew
+   if (location_id === "0") {
+    routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location]});
+  
+   }
+   else {
+   routesNew = await Route.findAll({ order: [['id', 'DESC']], include: [User, Location], where: {location_id: Number(location_id)}});
+   }
+   console.log(routesNew)
+  
+  const filteredListRoutes = React.createElement(RoutListFiltered, { routes:routesNew, location });
+  const html = ReactDOMServer.renderToStaticMarkup(filteredListRoutes);
+  res.end(html); 
+//}
+  
+  
 homeRouter.get('/route', (req, res) => {
   const newRouterForm = React.createElement(NewRouteForm);
   const html = ReactDOMServer.renderToStaticMarkup(newRouterForm);
@@ -104,5 +127,6 @@ homeRouter.delete('/route/:id', async (req, res) => {
    } else {
     res.json({message: 'no'})
   }
+
 })
 module.exports = homeRouter;

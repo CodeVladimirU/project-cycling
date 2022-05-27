@@ -23,7 +23,7 @@ app.use(session(
     },
   },
 ));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.env.PWD, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
