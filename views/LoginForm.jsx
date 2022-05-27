@@ -1,14 +1,14 @@
 const React = require('react');
-const Loyaut = require('./Layout');
+const Layout = require('./Layout');
 
 function LoginForm() {
   return (
-    <Loyaut>
-         <form
+    <Layout>
+        <form
             className="login-form"
             method="POST"
             action="/login"
-          >
+        >
             <div className="content">
             <p className="justtext">Войти</p>
             <p>Логин</p>
@@ -18,7 +18,7 @@ function LoginForm() {
             <button className="btnl" type="submit">login</button>
             </div>
           </form>
-    </Loyaut>
+    </Layout>
   );
 }
 module.exports = LoginForm;

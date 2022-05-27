@@ -32,7 +32,8 @@ p {
     color: #f7f8e8; /* цвет текста на кнопке */
   }
   .btnr:hover {
-    background-color: #949a9a; /* замена цвета кнопки при наведении */  
+    background-color: #f0da33; /* замена цвета кнопки при наведении */  
+    color: black; 
 }
 .inpr {
   background: white;
