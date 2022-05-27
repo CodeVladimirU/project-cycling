@@ -1,0 +1,48 @@
+.table {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  color: white;
+  background: rgba(34,34,34,.5);
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+.entry-date {
+  color: white;
+}
+.entry-title {
+  color: yellow;
+}
+.btnReview {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+  margin-top: 60px;
+  padding: 20px 60px; /* расстояние от текста до края кнопки */
+  background-color: #303030; /* цвет кнопки  */
+  box-shadow: 0px 6px #f7f8e8; /* задана тень */
+  border-radius: 5px; /* скругление углов */
+  font-size: 15px; /* размер шрифта */
+  text-transform: uppercase; /* трансформировать в заглавные буквы */
+  text-decoration: none; /* не подчеркивать ссылку */
+  transition: 0.2s; /* плавный ховер эффект */
+  color: #f7f8e8; /* цвет текста на кнопке */
+  }
+  .btnReview:hover {
+    background-color: #949a9a; /* замена цвета кнопки при наведении */  
+}
+.countur{
+  border: 1px solid;
+  padding: 20px;
+  margin: 20px;
+  color: white;
+  list-style-type: none; /* Убираем маркеры */
+}
+
+.entries {
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
