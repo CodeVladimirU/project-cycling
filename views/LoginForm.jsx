@@ -3,25 +3,24 @@ const Layout = require('./Layout');
 
 function LoginForm() {
   return (
+
     <Layout>
-      <div className="login-page">
-        <div className="form">
-          <form
+         <form
+
             className="login-form"
             method="POST"
             action="/login"
           >
-            <input name="username" type="text" placeholder="username" />
-            <input name="password" type="password" placeholder="password" />
-            <button type="submit">login</button>
-            <p className="message">
-              Not registered?
-              {' '}
-              <a href="/registration">Create an account</a>
-            </p>
+            <div className="content">
+            <p className="justtext">Войти</p>
+            <p>Логин</p>
+            <input className="inpl" name="username" type="text" placeholder="введите username" />
+            <p>Пароль</p>
+            <input className="inpl" name="password" type="password" placeholder="введите password" />
+            <button className="btnl" type="submit">login</button>
+            </div>
           </form>
-        </div>
-      </div>
+
     </Layout>
   );
 }
