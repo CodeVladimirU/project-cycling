@@ -3,6 +3,7 @@ const React = require('react');
 module.exports = function NewRoureForm() {
     return(
         <form action="/route" method="POST" className="newRouteForm">
+
           <label >Название маршрута</label>
             <input name="title" type="text" placeholder="Введите название маршрута"/>
             <label >Населенный пункт</label>
@@ -14,6 +15,7 @@ module.exports = function NewRoureForm() {
             <label >Адрес конечной точки</label>
             <input name="pointB" type="text" placeholder="Введите адрес конечной точки"/>
             <button id="createRoute">Создать маршрут</button>
+
         </form>
     )
 }

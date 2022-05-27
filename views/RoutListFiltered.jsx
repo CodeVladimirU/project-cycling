@@ -12,9 +12,11 @@ module.exports = function RoutListFiltered({ routes }) {
                     {' '}
                     {route.createdAt.toString()}
                   </span> */}
-                  <p className="entry-stub">{`created By${route.User.username}`}</p>
-                  <p className="entry-stub">{`length: ${route.length_km} km`}</p>
+                  
                   <p className="entry-stub">{`${route.Location.title}`}</p>
+                  <p className="entry-stub">{`length: ${route.length_km} km`}</p>
+                  <p className="entry-stub">{`created By ${route.User.username}`}</p>
+                  <p className="entry-stub">{`Rating:  ${route.AvRating}/10`}</p>
                 </li>
               ))}
               

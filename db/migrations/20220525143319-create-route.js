@@ -11,10 +11,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      // map: {
-      //   allowNull: false,
-      //   type: Sequelize.TEXT,
-      // },
+      pointA: {
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
+      pointB:{
+        allowNull: false,
+        type: Sequelize.TEXT,
+      },
       user_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
