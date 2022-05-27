@@ -1,4 +1,4 @@
-.table {
+.tables {
   display: flex;
   background: rgba(34,34,34,.5);
   height: auto;
@@ -48,3 +48,4 @@
   margin-left: 0; /* Отступ слева в браузере IE и Opera */
   padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
 }
+
