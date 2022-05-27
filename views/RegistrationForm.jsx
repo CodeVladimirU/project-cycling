@@ -5,17 +5,18 @@ function RegistrationForm() {
   return (
     <Layout>
       <body>
-        <div className="login-page">
-          <div className="form">
             <form className="login-form regUser" method="POST" action="/registration/create">
-              <input name="username" type="text" placeholder="name" />
-              <input name="password" type="password" placeholder="password" />
-              <input name="email" type="text" placeholder="email address" />
-              <button type="submit">create</button>
+            <div className="cont">
+          <p className="justtext">Регистрация</p>
+          <p>Логин</p>
+              <input className="inpr" name="username" type="text" placeholder="введите name" />
+              <p>Пароль</p>
+              <input className="inpr" name="password" type="password" placeholder="введите password" />
+              <p>email</p>
+              <input className="inpr" name="email" type="email" placeholder="введите email address" />
+              <button className="btnr" type="submit" >create</button>
+              </div>
             </form>
-          </div>
-        </div>
-        <div className="errMessage" />
       </body>
     </Layout>
   );

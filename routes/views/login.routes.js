@@ -15,7 +15,6 @@ loginRouter.get('/', (req, res) => {
 loginRouter.post('/', async (req, res) => {
   const { username, password } = req.body;
   let user;
-  console.log(username, password);
   try {
     user = await User.findOne({
       where: {
@@ -30,7 +29,6 @@ loginRouter.post('/', async (req, res) => {
     res.status(404);
     res.json({ message: 'Такой пользователь не найден' });
   }
-  console.log(user);
   let isSame;
   try {
     isSame = await bcrypt.compare(password, user.password);
