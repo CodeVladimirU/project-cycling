@@ -29,9 +29,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    map: {
+    pointA: {
       allowNull: false,
       type: DataTypes.TEXT,
+    },
+    pointB:{
+      allowNull: false,
+      type: DataTypes.TEXT,
+
     },
     user_id: {
       allowNull: false,
