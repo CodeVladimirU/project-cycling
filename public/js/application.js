@@ -2,9 +2,7 @@
 
 const filterForm = document.querySelector('#FilterForm')
 
-console.log(';vfvrgb')
 if(filterForm) {
-  console.log('filterGorm')
   filterForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     let select = document.getElementById('locationFilter');
@@ -27,6 +25,7 @@ console.log(method)
   
   try {
     postHtml = await response.text()
+    console.log(postHtml)
   document.querySelector('.js-container-list').innerHTML = postHtml } 
  catch(error) {console.log(error.message)} }
   ) }
