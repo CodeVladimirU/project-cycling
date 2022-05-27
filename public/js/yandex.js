@@ -6,9 +6,12 @@ async function init () {
    * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRoute.xml
    * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/multiRouter.MultiRouteModel.xml
    */
-   const response = await fetch('/api/map/');
+
+  const pageID = document.baseURI.match(/\d+/gm)[1];
+  const response = await fetch(`/api/map/${pageID}`);
   const p1p2 = await response.json();
   console.log(p1p2);
+console.log(pageID);
   var multiRoute = new ymaps.multiRouter.MultiRoute({
       // Описание опорных точек мультимаршрута.
       referencePoints: [
