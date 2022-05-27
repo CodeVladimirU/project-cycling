@@ -29,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
-    map: {
-      allowNull: false,
-      type: DataTypes.TEXT,
-    },
+    // map: {
+    //   allowNull: false,
+    //   type: DataTypes.TEXT,
+    // },
     user_id: {
       allowNull: false,
       type: DataTypes.INTEGER,
