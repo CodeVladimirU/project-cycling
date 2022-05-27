@@ -2,9 +2,13 @@
   "name": "project-cycling",
   "version": "1.0.0",
   "description": "## Звонок от заказчика",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
+    "start": "node app.js",
+
+    "dev": "nodemon app.js",
+    "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,7 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.16",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "react": "^18.1.0",

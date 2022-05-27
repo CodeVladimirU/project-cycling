@@ -4,8 +4,11 @@ const Navigation = require('./Navigation');
 module.exports = function Layout({ children, user }) {
   return (
     <html lang="en">
+
      <head>
         <meta charSet="utf-8" />
+        <script defer src="/js/client.js" />
+    <script defer src="/js/application.js"></script>
         <link rel="stylesheet" href="/css/review.css" />
         <link rel="stylesheet" href="/css/regastyle.css" />
         <link rel="stylesheet" href="/css/loginstyle.css" />
